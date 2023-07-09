@@ -1,9 +1,13 @@
+/* Основные стили страницы */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f5f5f5;
+    color: #333;
 }
 
+/* Шапка страницы */
 header {
     text-align: center;
     padding: 20px;
@@ -13,6 +17,12 @@ header h1 {
     margin-bottom: 10px;
 }
 
+header img {
+    max-width: 200px; /* Ограничение ширины изображения */
+    height: auto; /* Автоматическая подстройка высоты для сохранения пропорций */
+}
+
+/* Основное содержимое страницы */
 main {
     padding: 20px;
 }
@@ -29,6 +39,7 @@ ul {
     padding-left: 20px;
 }
 
+/* Подвал страницы */
 footer {
     text-align: center;
     background-color: #f5f5f5;
@@ -44,155 +55,165 @@ footer a {
     color: #0000ff;
 }
 
-/* Set a background color */
-body {
-    background-color: #474e5d;
-    font-family: Helvetica, sans-serif;
-  }
-  
-  /* The actual timeline (the vertical ruler) */
-  .timeline {
+/* Таймлайн */
+.timeline {
     position: relative;
-    max-width: 1200px;
+    max-width: 600px;
     margin: 0 auto;
-  }
-  
-  /* The actual timeline (the vertical ruler) */
-  .timeline::after {
+}
+
+.timeline::after {
     content: '';
     position: absolute;
-    width: 6px;
-    background-color: white;
+    width: 3px;
+    background-color: #808080;
     top: 0;
     bottom: 0;
     left: 50%;
-    margin-left: -3px;
-  }
-  
-  /* Container around content */
-  .container {
-    padding: 10px 40px;
+    margin-left: -1.5px;
+}
+
+.container {
+    padding: 10px 20px;
     position: relative;
     background-color: inherit;
     width: 50%;
-  }
-  
-  /* The circles on the timeline */
-  .container::after {
+}
+
+.container::after {
     content: '';
     position: absolute;
-    width: 25px;
-    height: 25px;
-    right: -17px;
+    width: 15px;
+    height: 15px;
+    right: -7px;
     background-color: white;
-    border: 4px solid #FF9F55;
-    top: 15px;
+    border: 3px solid #FF9F55;
+    top: 7px;
     border-radius: 50%;
     z-index: 1;
-  }
-  
-  /* Place the container to the left */
-  .left {
+}
+
+.left {
     left: 0;
-  }
-  
-  /* Place the container to the right */
-  .right {
+}
+
+.right {
     left: 50%;
-  }
-  
-  /* Add arrows to the left container (pointing right) */
-  .left::before {
+}
+
+.left::before {
     content: " ";
     height: 0;
     position: absolute;
-    top: 22px;
+    top: 10px;
     width: 0;
     z-index: 1;
-    right: 30px;
+    right: 15px;
     border: medium solid white;
-    border-width: 10px 0 10px 10px;
+    border-width: 6px 0 6px 6px;
     border-color: transparent transparent transparent white;
-  }
-  
-  /* Add arrows to the right container (pointing left) */
-  .right::before {
+}
+
+.right::before {
     content: " ";
     height: 0;
     position: absolute;
-    top: 22px;
+    top: 10px;
     width: 0;
     z-index: 1;
-    left: 30px;
+    left: 15px;
     border: medium solid white;
-    border-width: 10px 10px 10px 0;
+    border-width: 6px 6px 6px 0;
     border-color: transparent white transparent transparent;
-  }
-  
-  /* Fix the circle for containers on the right side */
-  .right::after {
-    left: -16px;
-  }
-  
-  /* The actual content */
-  .content {
-    padding: 20px 30px;
+}
+
+.right::after {
+    left: -5px;
+}
+
+.content {
+    padding: 10px 15px;
     background-color: white;
     position: relative;
-    border-radius: 6px;
-  }
-  
-  /* Media queries - Responsive timeline on screens less than 600px wide */
-  @media screen and (max-width: 600px) {
-    /* Place the timelime to the left */
-    .timeline::after {
-      left: 31px;
-    }
-  
-    /* Full-width containers */
-    .container {
-      width: 100%;
-      padding-left: 70px;
-      padding-right: 25px;
-    }
-  
-    /* Make sure that all arrows are pointing leftwards */
-    .container::before {
-      left: 60px;
-      border: medium solid white;
-      border-width: 10px 10px 10px 0;
-      border-color: transparent white transparent transparent;
-    }
-  
-    /* Make sure all circles are at the same spot */
-    .left::after,
-    .right::after {
-      left: 15px;
-    }
-  
-    /* Make all right containers behave like the left ones */
-    .right {
-      left: 0%;
-    }
-  }
-
-/* Make sure that padding behaves as expected */
-* {box-sizing:border-box}
-
-/* Container for skill bars */
-.container {
-  width: 100%; /* Full width */
-  background-color: #ddd; /* Grey background */
+    border-radius: 4px;
 }
 
+/* Адаптивность */
+@media screen and (max-width: 767px) {
+    header img {
+        max-width: 150px;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    section {
+        margin-bottom: 20px;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+
+    footer {
+        padding: 20px;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    header {
+        text-align: center;
+        padding: 20px;
+    }
+
+    header img {
+        max-width: 200px;
+    }
+
+    main {
+        padding: 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    section {
+        width: calc(33.33% - 20px);
+        margin-bottom: 20px;
+    }
+
+    footer {
+        text-align: center;
+        background-color: #f5f5f5;
+        padding: 20px;
+    }
+}
+
+/* Улучшение цветов на skillbar */
 .skills {
-  text-align: right; /* Right-align text */
-  padding-top: 10px; /* Add top padding */
-  padding-bottom: 10px; /* Add bottom padding */
-  color: white; /* White text color */
+    text-align: right;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #000000;
 }
 
-.html {width: 90%; background-color: #04AA6D;} /* Green */
-.css {width: 80%; background-color: #2196F3;} /* Blue */
-.js {width: 65%; background-color: #f44336;} /* Red */
-.php {width: 60%; background-color: #808080;} /* Dark Grey */
+.html {
+    width: 90%;
+    background-color: #6dbb70; /* Зеленый цвет */
+}
+
+.css {
+    width: 80%;
+    background-color: #5298d2; /* Синий цвет */
+}
+
+.js {
+    width: 65%;
+    background-color: #e34c26; /* Красный цвет */
+}
+
+.php {
+    width: 60%;
+    background-color: #d5fa05; /* Желтый цвет */
+}
